@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MelodyVibe | Music Streaming</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Registration -->
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-box">
+      <div class="logo">♫ MelodyVibe</div>
+      <h2>Welcome to your music world</h2>
+      <p>Create your account to start listening.</p>
+      <form id="registerForm">
+        <input id="username" type="text" placeholder="Your name" required>
+        <input id="email" type="email" placeholder="Email address" required>
+        <input id="password" type="password" placeholder="Create password" minlength="6" required>
+        <button type="submit">Create Account</button>
+      </form>
+      <p class="auth-note">Demo registration: account details are saved in this browser.</p>
+    </div>
+  </div>
+
+  <!-- Main website -->
+  <div id="mainApp" class="app hidden">
+    <aside class="sidebar">
+      <h2 class="logo">♫ MelodyVibe</h2>
+      <nav>
+        <a href="#home">⌂ Home</a>
+        <a href="#categories">▣ Explore</a>
+        <a href="#favorites">♥ Favorites</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <p>Music for every mood.</p>
+        <button id="logoutBtn" class="logout">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <div>
+          <p class="welcome">Your daily soundtrack</p>
+          <h1>Feel every beat <span>♫</span></h1>
+        </div>
+        <div class="profile" id="profileName">Music Lover</div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-text">
+          <span class="eyebrow">YOUR MUSIC. YOUR VIBE.</span>
+          <h2>Discover sounds<br>that move you.</h2>
+          <p>From Bollywood beats to Hollywood hits and Tollywood melodies.</p>
+          <a href="#categories" class="hero-btn">Explore Music</a>
+        </div>
+      </section>
+
+      <section class="search-area">
+        <input type="search" id="searchInput" placeholder="Search songs, artists, languages...">
+      </section>
+
+      <section id="categories">
+        <div class="section-heading">
+          <h2>Explore genres</h2>
+          <p>Choose your favorite music world</p>
+        </div>
+        <div class="category-grid">
+          <button class="category bolly" data-category="Bollywood">
+            <span>🎬</span><h3>Bollywood</h3><p>Hindi hits</p>
+          </button>
+          <button class="category holly" data-category="Hollywood">
+            <span>🌎</span><h3>Hollywood</h3><p>English hits</p>
+          </button>
+          <button class="category tolly" data-category="Tollywood">
+            <span>🎼</span><h3>Tollywood</h3><p>Telugu melodies</p>
+          </button>
+          <button class="category all" data-category="All">
+            <span>🎧</span><h3>All Music</h3><p>Every vibe</p>
+          </button>
+        </div>
+      </section>
+
+      <section class="songs-section">
+        <div class="section-heading">
+          <div>
+            <h2 id="songsTitle">Trending songs</h2>
+            <p>Find your next favorite track</p>
+          </div>
+          <button id="showAll" class="text-btn">Show all</button>
+        </div>
+        <div id="songGrid" class="song-grid"></div>
+      </section>
+
+      <section id="favorites" class="songs-section">
+        <div class="section-heading">
+          <div>
+            <h2>♥ Your favorites</h2>
+            <p>Songs you love</p>
+          </div>
+        </div>
+        <div id="favoriteGrid" class="song-grid"></div>
+      </section>
+
+      <footer>Made for music lovers ♫ | MelodyVibe</footer>
+    </main>
+  </div>
+
+  <!-- Music player -->
+  <div class="player hidden" id="player">
+    <div class="now-playing">
+      <img id="playerCover" src="" alt="Album cover">
+      <div>
+        <strong id="playerTitle">Select a song</strong>
+        <small id="playerArtist">Artist</small>
+      </div>
+      <button id="playerFavorite" title="Favorite">♡</button>
+    </div>
+
+    <div class="player-controls">
+      <div class="control-buttons">
+        <button id="prevBtn" aria-label="Previous">⏮</button>
+        <button id="playBtn" class="play-main" aria-label="Play">▶</button>
+        <button id="nextBtn" aria-label="Next">⏭</button>
+      </div>
+      <div class="progress-area">
+        <span id="currentTime">0:00</span>
+        <input type="range" id="progress" min="0" max="100" value="0">
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="volume-area">
+      <span>🔊</span>
+      <input id="volume" type="range" min="0" max="1" step="0.01" value="0.7">
+    </div>
+    <audio id="audio"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
